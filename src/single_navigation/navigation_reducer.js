@@ -19,7 +19,7 @@ const navigationTree = route =>
   });
 
 // reducer
-export const navigationReducer = initialScene => {
+export const SingleNavigationReducer = initialScene => {
   const initialState = navigationTree(initialScene);
 
   return stateReducer(initialState, {

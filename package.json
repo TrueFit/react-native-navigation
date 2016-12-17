@@ -1,6 +1,6 @@
 {
   "name": "truefit-react-native-navigation",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a set of navigation classes and functions for react native",
   "main": "lib/index.js",
   "scripts": {
