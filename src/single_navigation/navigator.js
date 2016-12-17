@@ -23,7 +23,9 @@ class Navigator extends Component {
   }
 
   renderScene(sceneProps) {
-    return <NavigatorScene {...sceneProps} routeMap={this.props.routeMap} />;
+    return (
+      <NavigatorScene {...sceneProps} routeMap={this.props.routeMap} />
+    );
   }
 
   render() {
