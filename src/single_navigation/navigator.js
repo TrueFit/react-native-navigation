@@ -4,6 +4,7 @@ import {NavigationExperimental, StyleSheet} from 'react-native';
 import autobind from 'class-autobind';
 
 import {NavigatorScene} from './navigator_scene';
+import {NavigatorHeader} from './navigator_header';
 
 const {
   CardStack: NavigationCardStack,
@@ -28,12 +29,19 @@ class Navigator extends Component {
     );
   }
 
+  renderHeader(headerProps) {
+    return (
+      <NavigatorHeader {...headerProps} routeMap={this.props.routeMap} />
+    );
+  }
+
   render() {
     return (
       <NavigationCardStack
         navigationState={this.props.navigation}
         style={styles.container}
-        renderScene={this.renderScene} />
+        renderScene={this.renderScene}
+        renderHeader={this.renderHeader} />
     );
   }
 }
