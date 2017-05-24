@@ -1,6 +1,6 @@
 {
   "name": "truefit-react-native-navigation",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "This repo wrap react-navigation to make navigation friendlier.",
   "main": "lib/index.js",
   "scripts": {

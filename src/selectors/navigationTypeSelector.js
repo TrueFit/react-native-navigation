@@ -1,1 +1,1 @@
-export default state => state.features.navigation.navigationType;
+export default state => state.navigation.navigationType;
