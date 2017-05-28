@@ -9,7 +9,6 @@ export const TAB = 'TAB';
 export const navigation = {
   drawer: null,
   tabs: null,
-
   routes: null,
 };
 
