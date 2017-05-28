@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {NavigationActions} from 'react-navigation';
 
 const INITIAL_ROUTE = 'INITIAL_ROUTE';
 
@@ -14,6 +15,19 @@ const StandaloneRouter = routes =>
               routeName: action.payload.path,
               key: action.payload.path,
               ...action.payload.params,
+            },
+          ],
+        };
+
+      case NavigationActions.NAVIGATE:
+      case NavigationActions.RESET:
+        return {
+          index: 0,
+          routes: [
+            {
+              routeName: action.routeName,
+              key: action.routeName,
+              ...action.params,
             },
           ],
         };
@@ -36,11 +50,11 @@ const StandaloneRouter = routes =>
 
   getComponentForState: state => {
     const routeName = state.routes[state.index].routeName;
-    return routes[routeName].screen;
+    return (routes[routeName] || {}).screen || null;
   },
 
   getComponentForRouteName: routeName =>
-    routes[routeName].screen,
+    (routes[routeName] || {}).screen || null,
 });
 
 export const StandaloneNavigator = routes => {
