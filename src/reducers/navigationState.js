@@ -1,3 +1,4 @@
+import {NavigationActions} from 'react-navigation';
 import {getNavigator} from '../services';
 import {SET_NAVIGATION_SCHEME} from '../actions';
 
@@ -7,12 +8,19 @@ export default (state = null, action) => {
       const {initialRoute, type} = action.payload;
       const navigator = getNavigator(type);
 
-      return navigator.router.getStateForAction(
-        navigator.router.getActionForPathAndParams(initialRoute)
-      );
+      // the tab navigator decides to put a bunch of child actions on this that we don't want, so truncate those
+      const actionForPath = navigator.router.getActionForPathAndParams(initialRoute);
+      delete actionForPath.action;
+
+      return navigator.router.getStateForAction(actionForPath);
     }
 
-    default: {
+    case NavigationActions.INIT:
+    case NavigationActions.BACK:
+    case NavigationActions.RESET:
+    case NavigationActions.NAVIGATE:
+    case NavigationActions.SET_PARAMS:
+    case NavigationActions.URI: {
       const navigator = getNavigator();
       if (!navigator) {
         return state;
@@ -22,5 +30,8 @@ export default (state = null, action) => {
 
       return nextState || state;
     }
+
+    default:
+      return state;
   }
 };
