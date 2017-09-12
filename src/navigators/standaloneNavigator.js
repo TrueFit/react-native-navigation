@@ -39,7 +39,7 @@ const StandaloneRouter = routes =>
             return navigate(action);
           }
 
-          const innerAction = action.actions > 0 ? action.actions[0] : null;
+          const innerAction = action.actions.length > 0 ? action.actions[0] : null;
           if (!innerAction) {
             return null;
           }
