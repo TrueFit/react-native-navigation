@@ -25,12 +25,12 @@ class Root extends Component {
   }
 
   onBackPress() {
-    const {handleBack, navigationState} = this.props;
-    if (navigationState.index === 0) {
+    const {dispatch, nav} = this.props;
+    if (nav.index === 0) {
       return false;
     }
 
-    handleBack();
+    dispatch(back());
     return true;
   }
 
@@ -54,4 +54,4 @@ const mapStateToProps = state => ({
   navigationType: navigationTypeSelector(state),
 });
 
-export default connect(mapStateToProps, {handleBack: back})(Root);
+export default connect(mapStateToProps)(Root);
