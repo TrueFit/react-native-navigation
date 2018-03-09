@@ -12,9 +12,13 @@ import {getNavigator} from '../services';
 
 import {MIDDLEWARE_FLAG} from '../constants';
 
-const addListener = createReduxBoundAddListener(MIDDLEWARE_FLAG);
-
 class Root extends Component {
+  constructor(props) {
+    super(props);
+
+    this.addListener = createReduxBoundAddListener(MIDDLEWARE_FLAG);
+  }
+
   // lifecycle
   componentDidMount() {
     BackHandler.addEventListener('hardwareBackPress', this.onBackPress);
@@ -44,7 +48,7 @@ class Root extends Component {
     }
 
     const Navigator = getNavigator(navigationType);
-    const nav = addNavigationHelpers({dispatch, state: navigationState, addListener});
+    const nav = addNavigationHelpers({dispatch, state: navigationState, addListener: this.addListener});
 
     return (
       <Navigator navigation={nav} />
