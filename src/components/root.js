@@ -1,21 +1,21 @@
 import React, {Component} from 'react';
 import {BackHandler} from 'react-native';
 import {connect} from 'react-redux';
-import autoBind from 'class-autobind';
 import {addNavigationHelpers} from 'react-navigation';
+import {createReduxBoundAddListener} from 'react-navigation-redux-helpers';
+import autobind from 'autobind-decorator';
+
 import {back} from '../actions';
 
 import {navigationStateSelector, navigationTypeSelector} from '../selectors';
 import {getNavigator} from '../services';
 
-// the container component
+import {MIDDLEWARE_FLAG} from '../constants';
+
+const addListener = createReduxBoundAddListener(MIDDLEWARE_FLAG);
+
 class Root extends Component {
-
-  constructor() {
-    super();
-    autoBind(this);
-  }
-
+  // lifecycle
   componentDidMount() {
     BackHandler.addEventListener('hardwareBackPress', this.onBackPress);
   }
@@ -24,6 +24,8 @@ class Root extends Component {
     BackHandler.removeEventListener('hardwareBackPress', this.onBackPress);
   }
 
+  // actions
+  @autobind
   onBackPress() {
     const {dispatch, nav} = this.props;
     if (nav.index === 0) {
@@ -34,6 +36,7 @@ class Root extends Component {
     return true;
   }
 
+  // render
   render() {
     const {navigationType, navigationState, dispatch} = this.props;
     if (!navigationType) {
@@ -41,7 +44,7 @@ class Root extends Component {
     }
 
     const Navigator = getNavigator(navigationType);
-    const nav = addNavigationHelpers({dispatch, state: navigationState});
+    const nav = addNavigationHelpers({dispatch, state: navigationState, addListener});
 
     return (
       <Navigator navigation={nav} />

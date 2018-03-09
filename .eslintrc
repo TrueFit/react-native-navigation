@@ -6,7 +6,9 @@
     "plugin:import/errors",
     "plugin:import/warnings"
   ],
-  "plugins": [],
+  "plugins": [
+    "react"
+  ],
   "parserOptions": {
     "ecmaVersion": 6,
     "sourceType": "module",
@@ -36,7 +38,7 @@
       "error",
       "multi-line"
     ],
-    "default-case": "error",
+    "default-case": "off",
     "dot-location": [
       "error",
       "property"
@@ -156,10 +158,7 @@
     "lines-around-comment": "off",
     "max-depth": "off",
     "max-len": "off",
-    "max-nested-callbacks": [
-      "error",
-      3
-    ],
+    "max-nested-callbacks": "off",
     "max-params": "off",
     "max-statements": "off",
     "max-statements-per-line": "off",
@@ -167,7 +166,12 @@
       "error",
       {
         "capIsNewExceptions": [
-          "DataTable"
+          "List",
+          "Map",
+          "OrderedMap",
+          "Set",
+          "OrderedSet",
+          "Record"
         ]
       }
     ],
@@ -190,7 +194,12 @@
     "no-spaced-func": "error",
     "no-ternary": "off",
     "no-trailing-spaces": "error",
-    "no-underscore-dangle": "error",
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": ["_delete", "_export"]
+      }
+    ],
     "no-unneeded-ternary": "error",
     "no-whitespace-before-property": "error",
     "object-curly-spacing": "error",
@@ -233,7 +242,7 @@
     "space-in-parens": "error",
     "space-infix-ops": "error",
     "space-unary-ops": "error",
-    "spaced-comment": "error",
+    "spaced-comment": "off",
     "wrap-regex": "off",
     "arrow-body-style": "error",
     "arrow-parens": [
@@ -266,5 +275,118 @@
     "template-curly-spacing": "error",
     "yield-star-spacing": "error",
     "import/no-mutable-exports": "error",
+    "react/forbid-component-props": "off",
+    "react/forbid-prop-types": [
+      "off",
+      {
+        "forbid": [
+          "any"
+        ]
+      }
+    ],
+    "react/no-children-prop": "off",
+    "react/no-danger": "error",
+    "react/no-did-mount-set-state": "error",
+    "react/no-did-update-set-state": "error",
+    "react/no-direct-mutation-state": "error",
+    "react/no-is-mounted": "error",
+    "react/no-multi-comp": [
+      "error",
+      {
+        "ignoreStateless": true
+      }
+    ],
+    "react/no-set-state": "off",
+    "react/no-string-refs": "error",
+    "react/no-unescaped-entities": "error",
+    "react/no-unknown-property": "error",
+    "react/no-unused-prop-types": [
+      "error",
+      {
+        "skipShapeProps": true
+      }
+    ],
+    "react/prefer-es6-class": "error",
+    "react/prefer-stateless-function": "off",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "error",
+    "react/require-optimization": "off",
+    "react/require-render-return": "error",
+    "react/self-closing-comp": "error",
+    "react/sort-comp": "error",
+    "react/sort-prop-types": [
+      "off",
+      {
+        "callbacksLast": true,
+        "ignoreCase": true,
+        "requiredFirst": false
+      }
+    ],
+    "react/style-prop-object": "error",
+    "react/jsx-boolean-value": "error",
+    "react/jsx-closing-bracket-location": [
+      "error",
+      {
+        "nonEmpty": "after-props",
+        "selfClosing": "after-props"
+      }
+    ],
+    "react/jsx-curly-spacing": [
+      "error",
+      "never"
+    ],
+    "react/jsx-equals-spacing": [
+      "error",
+      "never"
+    ],
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [
+          ".js"
+        ]
+      }
+    ],
+    "react/jsx-first-prop-new-line": [
+      "off",
+      "multiline"
+    ],
+    "react/jsx-handler-names": [
+      "error",
+      {
+        "eventHandlerPrefix": "handle",
+        "eventHandlerPropPrefix": "on"
+      }
+    ],
+    "react/jsx-indent": [
+      "error",
+      2
+    ],
+    "react/jsx-indent-props": [
+      "off",
+      2
+    ],
+    "react/jsx-key": "error",
+    "react/jsx-max-props-per-line": "off",
+    "react/jsx-no-bind": "error",
+    "react/jsx-no-duplicate-props": "error",
+    "react/jsx-no-literals": "off",
+    "react/jsx-no-undef": "error",
+    "react/jsx-pascal-case": "error",
+    "react/jsx-sort-props": "off",
+    "react/jsx-space-before-closing": [
+      "error",
+      "always"
+    ],
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/jsx-wrap-multilines": [
+      "error",
+      {
+        "declaration": false,
+        "assignment": false,
+        "return": true
+      }
+    ]
   }
 }
