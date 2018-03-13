@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 const DrawerIcon = ({name = 'bars', size = 30, color = '#000', style = styles.icon, openDrawer}) =>
   (
     <TouchableOpacity onPress={openDrawer}>
-      <Icon name={name} size={size} color={color} style={style}/>
+      <Icon name={name} size={size} color={color} style={style} />
     </TouchableOpacity>
   );
 

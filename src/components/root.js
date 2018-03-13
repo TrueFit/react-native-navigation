@@ -59,6 +59,7 @@ class Root extends Component {
 const mapStateToProps = state => ({
   navigationState: navigationStateSelector(state),
   navigationType: navigationTypeSelector(state),
+  nav: state.nav,
 });
 
 export default connect(mapStateToProps)(Root);
