@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon src/index.js --exec babel-node",
     "compile": "node tools/build.js",
-    "prepublish": "npm run compile"
+    "prepublish": "npm run compile",
+    "dev-publish": "node tools/dev-publish.js"
   },
   "repository": {
     "type": "git",
