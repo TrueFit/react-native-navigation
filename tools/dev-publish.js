@@ -1,10 +1,17 @@
 /* eslint-disable */
 require('shelljs/global');
-require('./build.js');
+echo('Building ...');
 
+// clean
+rm('-rf', 'lib');
+
+// move over
+exec('babel -d lib/ src/ --sourcemaps');
+rm('-rf', 'lib/tools/');
+
+echo('Build Complete');
+
+// move to dev target
 const target = process.argv[2] + '/node_modules/truefit-react-native-navigation/lib';
-
-console.log(target);
-
 rm('-rf', target);
 mv('lib', target);
