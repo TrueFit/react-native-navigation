@@ -1,3 +1,3 @@
 export * from './configureNavigation';
-export * from './navigator';
-export {default as createMiddleware} from './createMiddleware';
+export {default as configureNavigation} from './configureNavigation';
+export {default as createNavigationReducer} from './createNavigationReducer';

@@ -1,22 +1,13 @@
-import {setNavigationScheme} from '../actions';
+import {createReactNavigationReduxMiddleware} from 'react-navigation-redux-helpers';
 
-// configuration
-export const STANDALONE = 'STANDALONE';
-export const STACK = 'STACK';
-export const DRAWER = 'DRAWER';
-export const TAB = 'TAB';
+import {MIDDLEWARE_KEY} from '../constants';
+import {createNavigator} from '../global/navigator';
 
-export const navigation = {
-  drawer: null,
-  tabs: null,
-  routes: null,
+// Note: createReactNavigationReduxMiddleware must be run before createReduxBoundAddListener
+export const navigationMiddleware = createReactNavigationReduxMiddleware(MIDDLEWARE_KEY, state => state.nav);
+
+export default (Navigator, routeConfig, navigatorConfig, initialRoute) => {
+  createNavigator(Navigator, routeConfig, navigatorConfig, initialRoute);
 };
 
-export const configureNavigation = (store, config) => {
-  navigation.drawer = config.drawer;
-  navigation.tabs = config.tabs;
-  navigation.routes = config.routes;
 
-  const {type, route} = config.initialConfig;
-  store.dispatch(setNavigationScheme(type, route));
-};

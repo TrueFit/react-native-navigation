@@ -1,1 +1,2 @@
-export const MIDDLEWARE_FLAG = 'ROOT';
+export const HARDWARE_BACK_PRESS = 'hardwareBackPress';
+export const MIDDLEWARE_KEY = 'ROOT';
