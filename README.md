@@ -32,7 +32,7 @@ The arguments to pass the configureNavigation method are as follows:
 ##### Code Example:
 ```
 import {SwitchNavigator} from 'react-navigation';
-import {configureNavigation} from 'truefit-react-native-navigation';
+import {configureNavigation} from 'truefit-navigation';
 
 // import route names
 import {BLANK} from '../routes';
@@ -64,7 +64,7 @@ This function will return the reducer that contains the navigation state.
 ##### Code Example: 
 ```
 import {combineReducers} from 'redux';
-import {createNavigationReducer} from 'truefit-react-native-navigation';
+import {createNavigationReducer} from 'truefit-navigation';
 import shared from './features/shared/reducers';
 
 const rootReducer = combineReducers({
@@ -84,7 +84,7 @@ The ConnectedNavigator should go at the root of your application, right inside t
 ```
 import React, {Component} from 'react';
 import {Provider} from 'react-redux';
-import {ConnectedNavigator} from 'truefit-react-native-navigation';
+import {ConnectedNavigator} from 'truefit-navigation';
 
 export default class App extends Component {
   render() {

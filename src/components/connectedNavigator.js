@@ -45,8 +45,8 @@ class ConnectedNavigator extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  nav: navigationSelector(state),
+const mapStateToProps = (state, props) => ({
+  nav: navigationSelector(state, props),
 });
 
 export default connect(mapStateToProps)(ConnectedNavigator);

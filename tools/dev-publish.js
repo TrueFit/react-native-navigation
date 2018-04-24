@@ -12,6 +12,8 @@ rm('-rf', 'lib/tools/');
 echo('Build Complete');
 
 // move to dev target
-const target = process.argv[2] + '/node_modules/truefit-react-native-navigation/lib';
+const target = process.argv[2] + '/node_modules/truefit-navigation/lib';
 rm('-rf', target);
 mv('lib', target);
+
+echo('Copy Complete')
