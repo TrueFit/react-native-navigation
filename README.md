@@ -166,7 +166,7 @@ Due to React Navigation requiring essentially a singleton AppNavigator, we have 
 1. You must call configureNavigation **BEFORE** you create your redux store.
 2. When creating your store, rather than using the ES6 import syntax for your rootReducer, you need to use the require syntax so that it is evaluated at execution (see code example below)
 
-##### Code Example:
+##### Code example:
 ```
 const middleware = [
   thunkMiddleware,
