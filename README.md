@@ -5,13 +5,13 @@ The goal of this package is to encapsulate the setup of React Navigation connect
 
 ## Installation
 ```
-npm install truefit-navigation --save
+npm install truefit-navigation react-navigation --save
 ```
 
 or
 
 ```
-yarn add truefit-navigation
+yarn add truefit-navigation react-navigation
 ```
 
 ## Setup
@@ -20,12 +20,12 @@ This function creates the AppNavigator and initializes it "globally" inside the 
 
 The arguments to pass the configureNavigation method are as follows:
 
-| Index | Value |
-| ------------- |:-------------:|
-| 0 | Root Navigator Type |
-| 1 | Route Navigation Configuration |
-| 2 | Navigator Configuration |
-| 3 | Initial Route Name |
+| Index | Value                          |
+| ----- | :----------------------------: |
+| 0     | Root Navigator Type            |
+| 1     | Route Navigation Configuration |
+| 2     | Navigator Configuration        |
+| 3     | Initial Route Name             |
 
 **It is required that this function is called BEFORE you create your redux store**
 
@@ -58,7 +58,7 @@ export default () => {
 
 ##### Code example with drawer and stack navigators:
 ```
-import {SwitchNavigator, DrawerNavigator, StackNavigator} from 'react-navigation';
+import {createSwitchNavigator, createDrawerNavigator, createStackNavigator} from 'react-navigation';
 import {configureNavigation} from 'truefit-navigation';
 
 // import route names
@@ -75,13 +75,13 @@ import {Dashboard as TeamDashboard} from '../features/teams/components';
 import {Dashboard as CompanyDashboard} from '../features/companies/components';
 
 // create route config
-const CompanyStack = StackNavigator(
+const CompanyStack = createStackNavigator(
   {
     [COMPANY_DASHBOARD]: {screen: CompanyDashboard},
   },
 );
 
-const TeamStack = StackNavigator(
+const TeamStack = createStackNavigator(
   {
     [LANDING]: {screen: Landing},
     [TEAM_DASHBOARD]: {screen: TeamDashboard},
@@ -89,7 +89,7 @@ const TeamStack = StackNavigator(
 );
 
 // each item in the drawer is a stack so the headers work
-const Drawer = DrawerNavigator(
+const Drawer = createDrawerNavigator(
   {
     [DRAWER_COMPANY_DASHBOARD]: {screen: CompanyStack},
     [DRAWER_TEAM_DASHBOARDS]: {screen: TeamStack},
@@ -112,7 +112,7 @@ export const navigatorConfig = {
 
 // config
 export default () => {
-  configureNavigation(SwitchNavigator, routeConfig, navigatorConfig, BOOT);
+  configureNavigation(createSwitchNavigator, routeConfig, navigatorConfig, BOOT);
 };
 ```
 

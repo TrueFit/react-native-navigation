@@ -1,19 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {BackHandler} from 'react-native';
-import {addNavigationHelpers, NavigationActions} from 'react-navigation';
-import {createReduxBoundAddListener} from 'react-navigation-redux-helpers';
-import autobind from 'autobind-decorator';
+import {NavigationActions} from 'react-navigation';
 
 import {navigationSelector} from '../selectors';
 import {AppNavigator} from '../global/navigator';
-import {MIDDLEWARE_KEY, HARDWARE_BACK_PRESS} from '../constants';
+import {HARDWARE_BACK_PRESS} from '../constants';
 
 class ConnectedNavigator extends Component {
   constructor(props) {
     super(props);
 
-    this.addListener = createReduxBoundAddListener(MIDDLEWARE_KEY);
+    this.onBackPress = this.onBackPress.bind(this);
   }
 
   componentDidMount() {
@@ -23,7 +21,6 @@ class ConnectedNavigator extends Component {
     BackHandler.removeEventListener(HARDWARE_BACK_PRESS, this.onBackPress);
   }
 
-  @autobind
   onBackPress() {
     const {dispatch, nav} = this.props;
     if (nav.index === 0) {
@@ -35,13 +32,7 @@ class ConnectedNavigator extends Component {
   }
 
   render() {
-    return (
-      <AppNavigator navigation={addNavigationHelpers({
-        dispatch: this.props.dispatch,
-        state: this.props.nav,
-        addListener: this.addListener,
-      })} />
-    );
+    return <AppNavigator />;
   }
 }
 
@@ -50,5 +41,3 @@ const mapStateToProps = (state, props) => ({
 });
 
 export default connect(mapStateToProps)(ConnectedNavigator);
-
-
