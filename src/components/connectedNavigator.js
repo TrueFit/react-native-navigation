@@ -3,8 +3,8 @@ import {connect} from 'react-redux';
 import {BackHandler} from 'react-native';
 import {NavigationActions} from 'react-navigation';
 
+import {ReduxNavigator} from '../global/navigator';
 import {navigationSelector} from '../selectors';
-import {AppNavigator} from '../global/navigator';
 import {HARDWARE_BACK_PRESS} from '../constants';
 
 class ConnectedNavigator extends Component {
@@ -32,7 +32,7 @@ class ConnectedNavigator extends Component {
   }
 
   render() {
-    return <AppNavigator />;
+    return <ReduxNavigator />;
   }
 }
 
