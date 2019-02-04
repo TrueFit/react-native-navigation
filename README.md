@@ -20,12 +20,12 @@ This function creates the AppNavigator and initializes it "globally" inside the 
 
 The arguments to pass the configureNavigation method are as follows:
 
-| Index | Value                          |
+| Index |             Value              |
 | ----- | :----------------------------: |
-| 0     | Root Navigator Type            |
+| 0     |      Root Navigator Type       |
 | 1     | Route Navigation Configuration |
-| 2     | Navigator Configuration        |
-| 3     | Initial Route Name             |
+| 2     |    Navigator Configuration     |
+| 3     |       Initial Route Name       |
 
 **It is required that this function is called BEFORE you create your redux store**
 
@@ -138,20 +138,17 @@ export default rootReducer;
 ```
 
 ### ConnectedNavigator
-The ConnectedNavigator should go at the root of your application, right inside the Provider tag. It will control the rest via navigation from there.
+The ConnectedNavigator should go at the root of your application. The Navigator will implement the Provider tag. It will control the rest via navigation from there.
 
 ##### Code example: 
 ```
 import React, {Component} from 'react';
-import {Provider} from 'react-redux';
 import {ConnectedNavigator} from 'truefit-navigation';
 
 export default class App extends Component {
   render() {
     return (
-      <Provider store={this.state.store}>
-        <ConnectedNavigator />
-      </Provider>
+      <ConnectedNavigator store={store} />
     );
   }
 }
@@ -170,7 +167,6 @@ Due to React Navigation requiring essentially a singleton AppNavigator, we have 
 ```
 const middleware = [
   thunkMiddleware,
-  promiseMiddlware(),
   asyncAwaitMiddleware,
   navigationMiddleware,
 ];

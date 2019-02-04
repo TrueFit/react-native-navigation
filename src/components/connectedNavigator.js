@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Provider} from 'react-redux';
 import {connect} from 'react-redux';
 import {BackHandler} from 'react-native';
 import {NavigationActions} from 'react-navigation';
@@ -32,7 +33,11 @@ class ConnectedNavigator extends Component {
   }
 
   render() {
-    return <ReduxNavigator />;
+    return (
+      <Provider store={this.props.store}>
+        <ReduxNavigator />
+      </Provider>
+    );
   }
 }
 
