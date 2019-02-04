@@ -138,17 +138,20 @@ export default rootReducer;
 ```
 
 ### ConnectedNavigator
-The ConnectedNavigator should go at the root of your application. The Navigator will implement the Provider tag. It will control the rest via navigation from there.
+The ConnectedNavigator should go at the root of your application. It will control the rest via navigation from there.
 
 ##### Code example: 
 ```
 import React, {Component} from 'react';
+import {Provider} from 'react-redux';
 import {ConnectedNavigator} from 'truefit-navigation';
 
 export default class App extends Component {
   render() {
     return (
-      <ConnectedNavigator store={store} />
+      <Provider store={this.state.store}>
+        <ConnectedNavigator store={store} />
+      </Provider>
     );
   }
 }
