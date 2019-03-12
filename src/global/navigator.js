@@ -1,6 +1,5 @@
 import {connect} from 'react-redux';
-import {reduxifyNavigator} from 'react-navigation-redux-helpers';
-import {MIDDLEWARE_KEY} from '../constants';
+import {createReduxContainer} from 'react-navigation-redux-helpers';
 
 export let AppNavigator = null; // eslint-disable-line
 export let ReduxNavigator = null; // eslint-disable-line
@@ -18,9 +17,7 @@ export const createNavigator = (
 ) => {
   AppNavigator = createRootNavigator(routeConfig, navigatorConfig);
 
-  ReduxNavigator = connect(mapStateToProps)(
-    reduxifyNavigator(AppNavigator, MIDDLEWARE_KEY)
-  );
+  ReduxNavigator = connect(mapStateToProps)(createReduxContainer(AppNavigator));
 
   InitialRoute = initalRoute;
 };

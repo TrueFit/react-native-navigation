@@ -1,12 +1,12 @@
 {
   "name": "truefit-navigation",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "This repo wrap react-navigation to make navigation friendlier.",
   "main": "lib/index.js",
   "scripts": {
     "start": "nodemon src/index.js --exec babel-node",
     "compile": "node tools/build.js",
-    "prepublish": "npm run compile",
+    "prepare": "npm run compile",
     "dev-publish": "node tools/dev-publish.js"
   },
   "repository": {
