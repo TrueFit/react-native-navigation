@@ -1,11 +1,8 @@
 import {createReactNavigationReduxMiddleware} from 'react-navigation-redux-helpers';
-
-import {MIDDLEWARE_KEY} from '../constants';
 import {createNavigator} from '../global/navigator';
 
-// Note: createReactNavigationReduxMiddleware must be run before reduxifyNavigator
+// Note: createReactNavigationReduxMiddleware must be run before createReduxContainer
 export const navigationMiddleware = createReactNavigationReduxMiddleware(
-  MIDDLEWARE_KEY,
   state => state.navigation
 );
 
