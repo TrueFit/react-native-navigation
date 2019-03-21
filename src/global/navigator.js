@@ -2,7 +2,7 @@ import {createAppContainer} from 'react-navigation';
 import {connect} from 'react-redux';
 import {createReduxContainer} from 'react-navigation-redux-helpers';
 
-export let AppContainer = null;
+export let AppContainer = null; // eslint-disable-line
 export let AppNavigator = null; // eslint-disable-line
 export let ReduxNavigator = null; // eslint-disable-line
 export let InitialRoute = null; // eslint-disable-line

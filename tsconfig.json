@@ -1,10 +1,6 @@
 {
-    "compilerOptions": {
-        "experimentalDecorators": true,
-        "allowJs": true
-    },
-    "exclude": [
-        "**/node_modules/*",
-        "**/.vscode/*"
-    ]
+  "compilerOptions": {
+    "experimentalDecorators": true
+  },
+  "exclude": ["**/node_modules/*", "**/.vscode/*"]
 }
