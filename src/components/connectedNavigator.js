@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {BackHandler} from 'react-native';
 import {NavigationActions} from 'react-navigation';
 
-import {ReduxNavigator} from '../global/navigator';
+import {AppContainer} from '../global/navigator';
 import {navigationSelector} from '../selectors';
 import {HARDWARE_BACK_PRESS} from '../constants';
 
@@ -32,7 +32,9 @@ class ConnectedNavigator extends Component {
   }
 
   render() {
-    return <ReduxNavigator />;
+    const {onNavigationStateChange, uriPrefix} = this.props;
+
+    return <AppContainer onNavigationStateChange={onNavigationStateChange} uriPrefix={uriPrefix} />;
   }
 }
 
