@@ -1,10 +1,8 @@
-import {createAppContainer} from 'react-navigation';
 import {connect} from 'react-redux';
 import {createReduxContainer} from 'react-navigation-redux-helpers';
 
-export let AppContainer = null; // eslint-disable-line
 export let AppNavigator = null; // eslint-disable-line
-export let ReduxNavigator = null; // eslint-disable-line
+export let ReduxContainer = null; // eslint-disable-line
 export let InitialRoute = null; // eslint-disable-line
 
 const mapStateToProps = state => ({
@@ -18,9 +16,7 @@ export const createNavigator = (
   initalRoute
 ) => {
   AppNavigator = createRootNavigator(routeConfig, navigatorConfig);
-  ReduxNavigator = connect(mapStateToProps)(createReduxContainer(AppNavigator));
-
-  AppContainer = createAppContainer(ReduxNavigator);
+  ReduxContainer = connect(mapStateToProps)(createReduxContainer(AppNavigator));
 
   InitialRoute = initalRoute;
 };
