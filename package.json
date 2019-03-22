@@ -1,6 +1,6 @@
 {
   "name": "truefit-navigation",
-  "version": "3.2.1",
+  "version": "3.2.2",
   "description": "This repo wrap react-navigation to make navigation friendlier.",
   "main": "lib/index.js",
   "scripts": {
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/TrueFit/react-native-navigation#readme",
   "dependencies": {
+    "@react-navigation/core": "^3.2.0",
     "lodash": "4.17.11",
     "prop-types": "^15.7.2",
     "react-art": "^16.8.4",
