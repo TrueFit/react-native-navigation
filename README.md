@@ -1,17 +1,17 @@
-# truefit-navigation
+# @truefit/rn-navigation
 This repo is a wrapper around [React Navigation](https://reactnavigation.org/).
 
 The goal of this package is to encapsulate the setup of React Navigation connected to Redux, thus allowing the developer to focus on the needs of the app more quickly.
 
 ## Installation
 ```
-npm install truefit-navigation react-navigation --save
+npm install @truefit/rn-navigation --save
 ```
 
 or
 
 ```
-yarn add truefit-navigation react-navigation
+yarn add @truefit/rn-navigation
 ```
 
 ## Setup
